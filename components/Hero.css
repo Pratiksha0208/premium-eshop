@@ -1,0 +1,378 @@
+.hero {
+  position: relative;
+  padding: 100px 0 80px;
+  overflow: hidden;
+  background: var(--gradient-dark);
+}
+
+/* Background Glowing Ambient Orbs */
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+[data-theme='light'] .hero-glow {
+  opacity: 0.06;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background-color: var(--primary);
+  top: -100px;
+  right: -50px;
+  animation: pulseGlow 10s infinite alternate;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background-color: var(--secondary);
+  bottom: -50px;
+  left: -50px;
+  animation: pulseGlow 8s infinite alternate-reverse;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Column Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.badge-icon {
+  animation: pulse 2s infinite;
+}
+
+.hero-title {
+  font-size: 4.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 560px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+  width: 100%;
+}
+
+.hero-btn {
+  padding: 14px 32px;
+}
+
+.hero-btn-sec {
+  padding: 14px 32px;
+}
+
+/* Micro Stats */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+  width: 100%;
+  max-width: 560px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background-color: var(--border-color);
+}
+
+/* Right Column Visuals */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-card-container {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+}
+
+.hero-product-card {
+  padding: 24px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: rotate(2deg);
+  transition: var(--transition-bounce);
+}
+
+.hero-product-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.product-status-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--secondary);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.05em;
+}
+
+.hero-product-image-wrapper {
+  position: relative;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glowing geometric fallback orb representing smart technology */
+.hero-product-sphere {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: blur(10px);
+}
+
+.inner-sphere {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+.hero-product-image {
+  max-height: 220px;
+  object-fit: contain;
+  z-index: 1;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-product-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.hero-product-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.hero-product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.hero-product-price {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.hero-buy-btn {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Floating Badges */
+.floating-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: var(--border-radius-md);
+  position: absolute;
+  box-shadow: var(--shadow-md);
+  animation: float 5s ease-in-out infinite;
+  z-index: 2;
+  width: max-content;
+}
+
+.floating-info h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.floating-info p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.card-1 {
+  bottom: 60px;
+  left: -80px;
+  animation-delay: 0.5s;
+}
+
+.card-2 {
+  top: 40px;
+  right: -60px;
+  animation-delay: 1.5s;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 3.25rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-visual {
+    margin-top: 20px;
+  }
+
+  .card-1 {
+    left: -40px;
+  }
+
+  .card-2 {
+    right: -40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 60px 0 40px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .floating-info {
+    display: none; /* Hide floating cards on small screens */
+  }
+
+  .hero-product-card {
+    transform: none !important;
+  }
+}
